@@ -5,7 +5,7 @@ class ProductManager {
     constructor(path = "productos.txt") {
         this.#path = path;
         this.#products = [];
-        // Si el archivo exite inicializo #products los datos del archivo, sino inicializo con un array vacio
+        // Si el archivo existe copio los datos del archivo a #products.
         if (fs.existsSync(path)) {
             this.#products = JSON.parse(fs.readFileSync(path, "utf-8"));
         } else {
@@ -148,8 +148,6 @@ prod.addProduct("title", "description", "price", "thumbnail", "code3", "stock");
 console.log(prod.getProducts());
 prod.updateProduct(2,"Nuevo title", "description", "price", "thumbnail", "code4", "25");
 console.log(prod.getProducts());
-
-
 prod.deleteProduct(1);
 prod.addProduct("title", "", "price", "thumbnail", "code", "stock");
 console.log(prod.getProducts());
